@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>REPLACE THIS</title>
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    </head>
+    <body>
+        <div id="wrapper">
+            {% set counter = 0 %}
+            {%for x in range(boxcounty):%}
+                <div class="row">
+                {% set counter = counter + 1 %}
+                {% if loop.index % 2 == 0 %}
+                    {% set counter = loop.index % 2 %}
+                {% endif %}
+                {% for y in range(boxcountx): %}
+                    
+                    <!-- {{ counter}} -->
+                    {% if (loop.index + counter) % 2 == 0: %}
+                        <div class="even"></div>
+                    {% else: %}
+                        <div class="odd"></div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+            {% endfor %}
+        </div>
+        <!-- <img src="{{ url_for('static', filename='img/my_img.png') }}"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='js/script.js') }}"
+        ></script>
+    </body>
+</html>
